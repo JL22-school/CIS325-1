@@ -3,19 +3,25 @@ var statusLabel = document.getElementById('statusLabel');
 statusLabel.textContent = "Loaded";
 });
 
+function customFunction() {
+    var inputField = document.getElementById('textInput');
+    var inputText = inputField.value.trim();
+    if (inputText !== '') {
+        const newListItem = document.createElement('li');
+        newListItem.textContent = inputText;
+        const list = document.getElementById('myList');
+        list.appendChild(newListItem);
+        inputField.value = '';
+    }
+    }
+}
+
 window.addEventListener('DOMContentLoaded', function() {
     var clickButton = document.getElementById('clickButton');
     var statusLabel = this.document.getElementById('statusLabel');
-    var textInput = document.getElementById('textInput');
-    var myList = document.getElementById('myList');
     
-    clickButton.addEventListener('click', function() {
-        statusLabel.textContent = "Clicking"
-        var newItemText = textInput.value;
-        if (newItemText.trim() !== '') {
-            var newListItem = document.createElement('li'); 
-            newListItem.textContent = newItemText;
-            myList.appendList(newListItem);
-            textInput.value = '';
+    clickButton.addEventListener('click', () => {
+        customFunction();
+        statusLabel.textContent = "Clicking";
         });
 });
