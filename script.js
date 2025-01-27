@@ -4,14 +4,16 @@ statusLabel.textContent = "Loaded";
 });
 
 window.addEventListener('DOMContentLoaded', function() {
-    const clickButton = document.getElementById('clickButton');
-    const textInput = document.getElementById('textInput');
-    const myList = document.getElementById('myList');
+    var clickButton = document.getElementById('clickButton');
+    var statusLabel = this.document.getElementById('statusLabel');
+    var textInput = document.getElementById('textInput');
+    var myList = document.getElementById('myList');
     
     clickButton.addEventListener('click', function() {
-        const newItemText = textInput.value;
+        statusLabel.textContent = "Clicking"
+        var newItemText = textInput.value;
         if (newItemText.trim() !== '') {
-            const newListItem = document.createElement('li'); 
+            var newListItem = document.createElement('li'); 
             newListItem.textContent = newItemText;
             myList.appendList(newListItem);
             textInput.value = '';
